@@ -1,0 +1,26 @@
+POST http://localhost:3500/api/v1/register
+content-type : application/json
+
+{    
+    "firstName"   : "Jayanth",
+    "lastName"    : "Kambhampati",
+    "email"       : "jayanth2@gmail.com",
+    "password"    : "1234",
+    "phoneNo"     : "125458715",
+    "dateOfBirth" : "2002-06-12"
+}
+
+###
+GET http://localhost:3500/api/v1/user/jayanth@gmail.com
+
+###
+PUT http://localhost:3500/api/v1/user/86e85db9-b2d9-43a8-9ec4-432ca2a0adf5
+Content-Type: application/json
+
+{    
+    "firstName"   : "Jayanth updated",
+    "dateOfBirth" : "12-06-2003"
+}
+
+### 
+DELETE http://localhost:3500/api/v1/user/86e85db9-b2d9-43a8-9ec4-432ca2a0adf5

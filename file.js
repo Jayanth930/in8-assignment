@@ -1,0 +1,1 @@
+console.log(new Date("12/06/2002"))

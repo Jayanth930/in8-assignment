@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Registration {
+  id          String   @id @default(uuid()) // In prisma @id implies Primary Key.
+  firstName   String   @map("first_name") @db.VarChar(255)
+  lastName    String?  @map("last_name") @db.VarChar(255)
+  email       String   @db.VarChar(325) // At max Email can have 320 characters.
+  password    String   @db.Text // Might not be necessary , but Added that.
+  phoneNo     String?  @map("phone_no") @db.VarChar(20) // @max could be 15 (Through google search for any country)
+  dateOfBirth DateTime @map("date_of_birth") @db.Date // Assuming date-of-birth means date. 
+  linkedInUrl String?  @map("linkedin_url") @db.Text // Applies to all Tech and Non-Tech guys
+  gitHubLink  String?  @map("github_link") @db.Text // Mostly Techies will have Github.
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamp()
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamp()
+
+  @@unique([email])
+  @@unique([phoneNo])
+  @@index([email])
+  @@map("registrations") // created table will habe registrations in DB
+}
