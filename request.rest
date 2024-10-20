@@ -1,26 +1,28 @@
-POST http://localhost:3500/api/v1/register
+POST http://localhost:3500/api/v1/user/register
 content-type : application/json
 
 {    
-    "firstName"   : "Jayanth",
+    "firstName"   : "Hemanth",
     "lastName"    : "Kambhampati",
-    "email"       : "jayanth2@gmail.com",
-    "password"    : "1234",
-    "phoneNo"     : "125458715",
-    "dateOfBirth" : "2002-06-12"
+    "email"       : "hemanth@gmail.com",
+    "password"    : "1254",
+    "phoneNo"     : "78945654", 
+    "dateOfBirth" : "2000-09-23",
+    "linkedInUrl" : "",
+    "gitHubLink" : ""
 }
 
 ###
-GET http://localhost:3500/api/v1/user/jayanth@gmail.com
+GET http://localhost:3500/api/v1/user/jayanth2@gmail.com
 
 ###
-PUT http://localhost:3500/api/v1/user/86e85db9-b2d9-43a8-9ec4-432ca2a0adf5
+PUT http://localhost:3500/api/v1/user/dbe77661-0f7a-4790-98da-732bbd67c4f4
 Content-Type: application/json
 
 {    
-    "firstName"   : "Jayanth updated",
-    "dateOfBirth" : "12-06-2003"
+    "linkedInUrl" : "https://www.linkedin.com/in/jayanth-kambhampati-jk/",
+    "gitHubLink" : "https://github.com/Jayanth930"
 }
 
 ### 
-DELETE http://localhost:3500/api/v1/user/86e85db9-b2d9-43a8-9ec4-432ca2a0adf5
+DELETE http://localhost:3500/api/v1/user/dbe77661-0f7a-4790-98da-732bbd67c4f4

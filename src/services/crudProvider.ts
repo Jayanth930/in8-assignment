@@ -100,7 +100,7 @@ export async function delteUser(req : Request<{id : string},{}>, res : Response<
         const user = await prisma.registration.delete({ 
             where : { id }
         })
-        if(user) res.sendStatus(204)
+        if(user) res.status(200).json({ responseCode : 1 , message : "Successfully deleted the user"});
     } catch (error) {
         const { status , failure} = getError(error);
         res.status(status).json(failure);
