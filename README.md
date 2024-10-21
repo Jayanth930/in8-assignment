@@ -1,6 +1,4 @@
 
-# Bike Library Backend
-
 ## About The Project
  As stated in the assignment it contains all four basic CRUD api's
 
