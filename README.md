@@ -53,8 +53,9 @@ npm run start
 ```
 6. Also you can prisma studio to quickly cheup / validate the apis
 ```sh
-npx prisma studio (This can be used to vizualize the database) on the Url : http://localhost:5555
+npx prisma studio
 ```
+* (This can be used to vizualize the database) on the Url : [http://localhost:5555](http://localhost:5555)
 
 ### Trouble Shooting Guide
 * The major problem might arise would be due to verison problem and also with global packages verion vs local package version
