@@ -28,7 +28,8 @@ export async function createUser(req : Request<{},{},Registration>, res : Respon
             data : {
                 ...uploadDTO ,
                 password : hash ,
-                dateOfBirth : new Date(dateOfBirth) // Even if its a string it will not cause any error.
+                dateOfBirth : new Date(dateOfBirth) ,  // Even if its a string it will not cause any error.
+                email : uploadDTO.email.toLowerCase() // As email is required ,it will be passed for sure.
             }
         })
         res.status(201).json({responseCode : 1 , message : "Successfully created user" , data : user})
@@ -63,7 +64,7 @@ export async function getUser(req : Request<{email : string}>, res : Response<re
 export async function updateUser(req : Request<{id : string},{},Partial<Registration>>, res : Response<response> , next:NextFunction) {
     const { id } = req.params;
     let updateDTO = req.body;
-    const { dateOfBirth , phoneNo , password } = updateDTO
+    const { dateOfBirth , phoneNo , password , email } = updateDTO
     // Assuming frontend Will check the constraints for email.
     if(dateOfBirth && new Date(dateOfBirth) > new Date()){
         throw new ClientError(5,"Please provide valid date-of-birth");
@@ -76,6 +77,8 @@ export async function updateUser(req : Request<{id : string},{},Partial<Registra
                 updateDTO = { ...updateDTO , password : hash}
             }else if(dateOfBirth){
                 updateDTO = { ...updateDTO, dateOfBirth: new Date(dateOfBirth)}
+            }else if(email){
+                updateDTO =  { ...updateDTO , email : updateDTO.email.toLowerCase()}
             }
             const updatedUser = await prisma.registration.update({
                 where : { id } , 

@@ -34,7 +34,7 @@ function getError(err) {
     var message, status, responseCode;
     if (err instanceof client_1.Prisma.PrismaClientKnownRequestError) {
         if (err.code === 'P2002') {
-            message = 'Unique constraint failed on the field:' + err.meta.target;
+            message = 'Provided fields:' + err.meta.target + ' already exists';
         }
         else if (err.code === 'P2025') {
             message = 'Record not found.';

@@ -25,7 +25,7 @@ export function getError(err:any) : composite{
     let message : string , status : number , responseCode : number;
     if (err instanceof Prisma.PrismaClientKnownRequestError) {
         if (err.code === 'P2002') {
-            message = 'Unique constraint failed on the field:' + err.meta.target;
+            message = 'Provided fields:' + err.meta.target + ' already exists';
         } else if (err.code === 'P2025') {
             message = 'Record not found.';
         } else if (err.code === 'P2014') {

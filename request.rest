@@ -4,7 +4,7 @@ content-type : application/json
 {    
     "firstName"   : "Hemanth",
     "lastName"    : "Kambhampati",
-    "email"       : "hemanth@gmail.com",
+    "email"       : "HemAnTh@gmail.com",
     "password"    : "1254",
     "phoneNo"     : "78945654", 
     "dateOfBirth" : "2000-09-23",
@@ -13,16 +13,16 @@ content-type : application/json
 }
 
 ###
-GET http://localhost:3500/api/v1/user/jayanth2@gmail.com
+GET http://localhost:3500/api/v1/user/hemanth@gmail.com
 
 ###
-PUT http://localhost:3500/api/v1/user/dbe77661-0f7a-4790-98da-732bbd67c4f4
+PUT http://localhost:3500/api/v1/user/cc38d2a6-81a5-4c2e-912c-2159a0fd75e1
 Content-Type: application/json
 
 {    
-    "linkedInUrl" : "https://www.linkedin.com/in/jayanth-kambhampati-jk/",
-    "gitHubLink" : "https://github.com/Jayanth930"
+    "linkedInUrl" : "https://www.linkedin.com/in/hemanth/",
+    "gitHubLink" : "https://github.com/hemanth541"
 }
 
 ### 
-DELETE http://localhost:3500/api/v1/user/dbe77661-0f7a-4790-98da-732bbd67c4f4
+DELETE http://localhost:3500/api/v1/user/cc38d2a6-81a5-4c2e-912c-2159a0fd75e2

@@ -75,7 +75,7 @@ function createUser(req, res, next) {
                 case 1:
                     hash = _b.sent();
                     return [4 /*yield*/, prisma.registration.create({
-                            data: __assign(__assign({}, uploadDTO), { password: hash, dateOfBirth: new Date(dateOfBirth) // Even if its a string it will not cause any error.
+                            data: __assign(__assign({}, uploadDTO), { password: hash, dateOfBirth: new Date(dateOfBirth), email: uploadDTO.email.toLowerCase() // As email is required ,it will be passed for sure.
                              })
                         })];
                 case 2:
@@ -128,13 +128,13 @@ function getUser(req, res, next) {
 }
 function updateUser(req, res, next) {
     return __awaiter(this, void 0, void 0, function () {
-        var id, updateDTO, dateOfBirth, phoneNo, password, hash, updatedUser, error_3, _a, status_3, failure;
+        var id, updateDTO, dateOfBirth, phoneNo, password, email, hash, updatedUser, error_3, _a, status_3, failure;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     id = req.params.id;
                     updateDTO = req.body;
-                    dateOfBirth = updateDTO.dateOfBirth, phoneNo = updateDTO.phoneNo, password = updateDTO.password;
+                    dateOfBirth = updateDTO.dateOfBirth, phoneNo = updateDTO.phoneNo, password = updateDTO.password, email = updateDTO.email;
                     if (!(dateOfBirth && new Date(dateOfBirth) > new Date())) return [3 /*break*/, 1];
                     throw new ErrorHandler_1.ClientError(5, "Please provide valid date-of-birth");
                 case 1:
@@ -151,6 +151,9 @@ function updateUser(req, res, next) {
                 case 4:
                     if (dateOfBirth) {
                         updateDTO = __assign(__assign({}, updateDTO), { dateOfBirth: new Date(dateOfBirth) });
+                    }
+                    else if (email) {
+                        updateDTO = __assign(__assign({}, updateDTO), { email: updateDTO.email.toLowerCase() });
                     }
                     _b.label = 5;
                 case 5: return [4 /*yield*/, prisma.registration.update({
