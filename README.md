@@ -53,7 +53,7 @@ npm run start
 ```
 6. Also you can prisma studio to quickly cheup / validate the apis
 ```sh
-npx prisma studio (This can be used to vizualize the database) on the Url :  [http://localhost:5555](http://localhost:5555)
+npx prisma studio (This can be used to vizualize the database) on the Url : http://localhost:5555
 ```
 
 ### Trouble Shooting Guide
@@ -65,7 +65,7 @@ npx prisma studio (This can be used to vizualize the database) on the Url :  [ht
 API : Register a New User  
 METHOD : **POST**  
 ENDPOINT : http://localhost:3500/api/v1/user/register    
-Content-Type : application/json
+Content-Type : application/json  
 {  
     &nbsp; &nbsp; &nbsp; "firstName" : "Your first Name",  
     &nbsp; &nbsp; &nbsp; "lastName" : "Your Last Name",  
